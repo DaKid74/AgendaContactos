@@ -1,0 +1,21 @@
+<div class="container-fluid p-5">
+  <div class="row mb-5">
+    <button [routerLink]="['/contacts']" routerLinkActive="router-link-active"  class="btn btn-secondary p-2 text-uppercase"><i class="fa fa-arrow-left" aria-hidden="true"></i> voltar</button>
+  </div>
+  <div class="row mb-5">
+    <h1>{{contact.name}} contact info's</h1>
+  </div>
+  <label>Name:</label>
+  <div class="row ml-4 mt-1">
+    <h2>{{contact.name}}</h2>
+  </div>
+  <label class="mt-4">Phonenumber:</label>
+  <div class="row ml-4 mt-1">
+    <h4>{{contact.phoneNumber}}</h4>
+  </div>
+  <label class="mt-4">Other infos:</label>
+  <div class="row ml-4 mt-1">
+    <h4>--</h4>
+  </div>
+
+</div>

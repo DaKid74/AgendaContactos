@@ -7,8 +7,10 @@ namespace AgendaContactos.API.Helpers
 {
     public class UserParams
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

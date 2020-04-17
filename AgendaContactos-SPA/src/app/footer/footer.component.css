@@ -1,0 +1,15 @@
+footer {
+  width: max-content;
+}
+
+#plus {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  transition: all ease-in-out 0.2s;
+}
+
+#plus:hover{
+  height: 70px;
+  width: 70px;
+}

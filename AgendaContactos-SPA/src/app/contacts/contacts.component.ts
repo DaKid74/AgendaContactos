@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ContactsService } from '../_services/contacts.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -8,20 +10,44 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactsComponent implements OnInit {
   contacts: any;
+  options: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private contactsService: ContactsService, private route: ActivatedRoute) {
+
+   }
 
   ngOnInit() {
-    this.getContacts();
+
+    this.options = this.route.snapshot.queryParamMap.get('options');
+    this.getContacts(this.options);
   }
 
 
-  getContacts() {
-    this.http.get('http://localhost:5000/contacts').subscribe(response => {
+  getContacts(options?: string) {
+    console.log(options);
+    this.contactsService.getAllContacts(options).subscribe(response => {
+      console.log("Success!")
       this.contacts = response;
     }, error => {
       console.log(error);
     })
   }
+
+
+  deleteContact(id: number) {
+      if(confirm("This is a permanent action! Are you sure you wish to delete these contact?")){
+        this.contactsService.deleteContact(id).subscribe(response => {
+          alert("Contact as been deleted succesfully!");
+          this.getContacts();
+        }, error => {
+          console.log(error);
+        })
+      }
+
+
+
+  }
+
+
 
 }

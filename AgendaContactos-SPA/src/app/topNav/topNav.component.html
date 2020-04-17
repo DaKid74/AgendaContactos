@@ -1,0 +1,11 @@
+<nav class="navbar navbar-dark bg-dark flex-md-nowrap p-2 shadow">
+  <a  class="navbar-brand col-sm-4 col-md-3 mr-0"  [routerLink]="['/contacts']" routerLinkActive="router-link-active" > <img src="../../assets/contactLogo.svg" width="30" height="30" class="align-top mr-4" alt="Contact List Logo">CONTACT LIST</a>
+  <form class="w-100 mt-3 col-sm-8 col-md-9" [formGroup]="searchForm" (ngSubmit)="search()">
+    <div class="form-group">
+      <div class="row d-flex align-items-center">
+        <input  class="col-sm-10 form-control form-control-dark ml-2 mr-2" type="text"  formControlName="search"  placeholder="Search" aria-label="Search">
+        <button [disabled]="!searchForm.valid" class="col btn btn-warning ml-2 mr-2 text-white" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </form>
+</nav>
